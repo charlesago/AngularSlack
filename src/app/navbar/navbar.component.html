@@ -1,0 +1,16 @@
+<nav class="navbar">
+  <div class="container">
+    <div class="nav-links">
+      <a href="/channels" class="nav-item">Channels</a>
+      <a href="/groups" class="nav-item">Groupes</a>
+      <a href="/conversations" class="nav-item">Conversations</a>
+      <a href="/users" class="nav-item">Utilisateurs</a>
+      <a *ngIf="GlobalConstants.actualUser" href="/profile/{{GlobalConstants.actualUser.id}}" class="nav-item">Profil</a>
+      <a *ngIf="GlobalConstants.actualUser" href="/profile/getFriends" class="nav-item">Amis</a>
+      <a href="#" class="nav-item">Notifications <span class="badge">Bientôt</span></a>
+      <a *ngIf="token == null" href="/login" class="nav-item">Se connecter</a>
+      <a *ngIf="token == null" href="/register" class="nav-item">S'inscrire</a>
+      <a *ngIf="token != null" (click)="localStorage.removeItem('bearerToken')" href="#" class="nav-item">Se déconnecter</a>
+    </div>
+  </div>
+</nav>

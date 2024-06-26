@@ -1,0 +1,20 @@
+.userDetail{
+  margin-left: 30%;
+  margin-top: 10%;
+}
+.arrowBackHover:hover{
+  .arrowBack{
+    filter: invert(100)
+  }
+}
+
+.topButtons{
+  height: 75px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 70vw;
+}

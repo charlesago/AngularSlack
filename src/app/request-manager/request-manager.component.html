@@ -1,0 +1,22 @@
+<div *ngIf="GlobalConstants.token != null" class="requestManager">
+  <ng-container *ngIf="GlobalConstants.actualUser != null">
+    <div *ngIf="requests.length === 0">
+      <p>Pas de requêtes</p>
+    </div>
+    <ng-container *ngFor="let request of requests">
+
+      <div class="card">
+        <div class="card__avatar">
+          <img src="/assets/images/circle-user-solid.svg" alt="Circle user default">
+        </div>
+        <div class="card__title">{{request.sender.relatedTo.username}}</div>
+        <div class="card__subtitle">Requête en attente...</div>
+        <div class="card__wrapper">
+          <button (click)="requestService.acceptFriendRequest(request.id)" class="card__btn">Accepter</button>
+          <button (click)="requestService.denyFriendRequest(request.id)" class="card__btn card__btn-solid">Refuser</button>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+
+</div>

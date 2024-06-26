@@ -1,0 +1,40 @@
+<main class="all">
+  <section class="form">
+    <h1 *ngIf="activeRoute == '/register'" class="form__title">Créer vous un compte!</h1>
+    <h1 *ngIf="activeRoute == '/login'" class="form__title">Connectez vous à votre compte</h1>
+    <p class="form__description">Bienvenue! S'il te plait, entre tes informations</p>
+
+    <form>
+      <label class="form-control__label">Nom d'utilisateur</label>
+      <input [(ngModel)]="username" type="text" class="form-control" name="username" id="username">
+
+      <label class="form-control__label">email</label>
+      <input [(ngModel)]="email" type="text" class="form-control" name="email" id="email">
+
+      <label class="form-control__label">Mot de passe</label>
+      <div class="password-field">
+        <input [(ngModel)]="password" type="{{typePassword}}" name="password" class="form-control" minlength="4" id="password">
+
+      </div>
+      <div class="password__settings">
+        <label class="password__settings__remember">
+          <input type="checkbox">
+
+          Se rappeler de moi
+        </label>
+
+        <a href="#">Forgot Password?</a>
+      </div>
+
+      <button *ngIf="activeRoute == '/register'" (click)="register(createUserObject(username,password, email))" type="submit" class="form__submit">S'enregistrer</button>
+      <button *ngIf="activeRoute == '/login'" (click)="login(createUserObject(username,password,email))" type="submit" class="form__submit">Se connecter</button>
+    </form>
+
+    <p *ngIf="activeRoute == '/register'" class="form__footer">
+      Tu as déjà un compte?<br> <a href="/login">Connecte toi</a>
+    </p>
+    <p *ngIf="activeRoute == '/login'" class="form__footer">
+      Pas encore de compte?<br> <a href="/register">Enregistre toi</a>
+    </p>
+  </section>
+</main>
